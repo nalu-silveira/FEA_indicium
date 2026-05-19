@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__sales_creditcard
+    description: "Informações sobre cartões de crédito e suas respectivas bandeiras."
+    columns:
+      - name: pk_id_cartao_credito
+        description: "Chave primária do cartão de crédito."
+        tests:
+          - unique
+          - not_null

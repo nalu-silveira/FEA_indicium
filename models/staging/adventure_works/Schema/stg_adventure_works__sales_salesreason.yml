@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__sales_salesreason
+    description: "Dicionário com as descrições dos motivos que geraram as vendas."
+    columns:
+      - name: pk_id_ordem_venda
+        description: "Chave identificadora única do motivo (Apesar do nome da coluna)."
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__person_stateprovince
+    description: "Cadastro de estados e províncias associados aos países."
+    columns:
+      - name: pk_id_estado
+        description: "Chave primária do estado."
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__sales_salesorderheadersalesreason
+    description: "Tabela associativa entre os pedidos e os motivos mapeados."
+    columns:
+      - name: pk_id_ordem_venda
+        description: "Chave estrangeira do pedido de venda."

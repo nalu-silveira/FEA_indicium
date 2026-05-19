@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__person_address
+    description: "Dados limpos e padronizados de endereços físicos dos clientes."
+    columns:
+      - name: pk_id_endereco
+        description: "Chave primária do endereço."
+        tests:
+          - unique
+          - not_null
+      - name: fk_id_estado
+        description: "Chave estrangeira que conecta ao estado."
