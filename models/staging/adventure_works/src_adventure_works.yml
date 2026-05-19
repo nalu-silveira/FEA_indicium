@@ -7,41 +7,122 @@ sources:
     description: "Dados brutos do ecossistema transacional da Adventure Works hospedados no Databricks"
     
     tables:
+      
       - name: sales_salesorderheader
         description: "Cabeçalho dos pedidos de venda. Contém metadados do pedido como datas, status, cliente, endereço e cartões."
-        
+        columns:
+          - name: salesorderid
+            description: "Chave Primária bruta do cabeçalho do pedido."
+            tests:
+              - unique
+              - not_null
+
       - name: sales_salesorderdetail
         description: "Detalhes dos itens de cada pedido de venda. Contém quantidades, preços unitários, descontos e IDs dos produtos."
+        columns:
+          - name: salesorderdetailid
+            description: "Chave Primária bruta do item do pedido."
+            tests:
+              - unique
+              - not_null
 
       - name: production_product
         description: "Cadastro principal de produtos. Contém o nome do produto e a chave para subcategoria."
-        
+        columns:
+          - name: productid
+            description: "Chave Primária bruta do produto."
+            tests:
+              - unique
+              - not_null
+
       - name: production_productsubcategory
         description: "Subcategorias dos produtos (ex: Mountain Bikes, Road Bikes) e chave para a categoria pai."
-        
+        columns:
+          - name: productsubcategoryid
+            description: "Chave Primária bruta da subcategoria."
+            tests:
+              - unique
+              - not_null
+
       - name: production_productcategory
         description: "Categorias macro dos produtos (ex: Bikes, Components, Clothing)."
+        columns:
+          - name: productcategoryid
+            description: "Chave Primária bruta da categoria macro."
+            tests:
+              - unique
+              - not_null
 
       - name: sales_customer
         description: "Tabela de associação do cliente. Liga o ID do cliente ao ID da pessoa física (person) ou loja."
-        
+        columns:
+          - name: customerid
+            description: "Chave Primária bruta do cliente."
+            tests:
+              - unique
+              - not_null
+
       - name: person_person
         description: "Cadastro geral de pessoas físicas. Utilizada para buscar o nome e sobrenome real dos clientes."
+        columns:
+          - name: businessentityid
+            description: "Chave Primária bruta da pessoa física."
+            tests:
+              - unique
+              - not_null
 
       - name: person_address
         description: "Cadastro de endereços físicos. Contém o nome da Cidade e a chave para o Estado."
-        
+        columns:
+          - name: addressid
+            description: "Chave Primária bruta do endereço."
+            tests:
+              - unique
+              - not_null
+
       - name: person_stateprovince
         description: "Cadastro de Estados/Províncias. Contém o nome do Estado e a chave para o País."
-        
+        columns:
+          - name: stateprovinceid
+            description: "Chave Primária bruta do estado."
+            tests:
+              - unique
+              - not_null
+
       - name: person_countryregion
         description: "Cadastro de Países/Regiões. Contém o nome final do País."
+        columns:
+          - name: countryregioncode
+            description: "Chave Primária bruta do país (Código ISO de texto)."
+            tests:
+              - unique
 
       - name: sales_creditcard
         description: "Cadastro de cartões de crédito. Utilizada para extrair a bandeira/tipo do cartão (CardType)."
+        columns:
+          - name: creditcardid
+            description: "Chave Primária bruta do cartão de crédito."
+            tests:
+              - unique
+              - not_null
 
       - name: sales_salesorderheadersalesreason
-        description: "Tabela ponte (N:M) que conecta um pedido de venda a um ou mais motivos de venda."
-        
+        description: "Tabela ponte (Muitos para Muitos) que conecta um pedido de venda a um ou mais motivos de venda."
+        columns:
+          - name: salesorderid
+            description: "Parte da chave composta: ID da ordem de venda. Não aplicamos unique pois um pedido pode ter vários motivos."
+            tests:
+              - not_null
+          - name: salesreasonid
+            description: "Parte da chave composta: ID do motivo de venda."
+            tests:
+              - not_null
+
       - name: sales_salesreason
         description: "Cadastro dos motivos de venda (ex: Price, On Promotion, Television Advertisement)."
+        columns:
+          - name: salesreasonid
+            description: "Chave Primária bruta do motivo de venda."
+            tests:
+              - unique
+              - not_null
