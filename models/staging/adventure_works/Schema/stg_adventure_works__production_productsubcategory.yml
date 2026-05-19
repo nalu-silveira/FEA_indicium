@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__production_productsubcategory
+    description: "Subcategorias detalhadas dos produtos."
+    columns:
+      - name: pk_id_subcategoria_produto
+        description: "Chave primária da subcategoria."
+        tests:
+          - unique
+          - not_null

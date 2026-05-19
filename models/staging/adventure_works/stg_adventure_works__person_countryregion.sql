@@ -4,6 +4,6 @@ with
     )
 
 select
-    cast(countryregioncode as string) as pk_id_pais
+    cast(coalesce(countryregioncode, 'NA') as string) as pk_id_pais
     , cast(name as string) as nome_pais
 from src_countryregion

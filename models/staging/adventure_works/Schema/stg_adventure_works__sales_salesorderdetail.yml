@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__sales_salesorderdetail
+    description: "Linhas de itens específicos contidos em cada pedido de venda."
+    columns:
+      - name: pk_id_detalhe_pedido
+        description: "Chave primária do item do pedido."
+        tests:
+          - unique
+          - not_null

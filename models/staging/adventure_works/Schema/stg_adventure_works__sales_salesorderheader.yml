@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__sales_salesorderheader
+    description: "Cabeçalho geral dos pedidos de venda com métricas financeiras brutas."
+    columns:
+      - name: pk_id_venda
+        description: "Chave primária do pedido macro."
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__person_countryregion
+    description: "Cadastro de países e regiões internacionais."
+    columns:
+      - name: pk_id_pais
+        description: "Código identificador único do país (Chave Primária)."
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__sales_customer
+    description: "Tabela de junção que mapeia clientes para entidades de pessoas ou lojas."
+    columns:
+      - name: pk_id_cliente
+        description: "Chave primária do cliente."
+        tests:
+          - unique
+          - not_null

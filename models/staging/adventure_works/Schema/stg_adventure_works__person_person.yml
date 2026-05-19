@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_adventure_works__person_person
+    description: "Cadastro geral de pessoas físicas com nome completo unificado."
+    columns:
+      - name: pk_id_pessoa
+        description: "Código identificador único da pessoa (Chave Primária)."
+        tests:
+          - unique
+          - not_null
