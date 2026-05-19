@@ -1,0 +1,48 @@
+
+version: 2
+
+models:
+  - name: fct_vendas
+    description: "Tabela fato central que consolida os itens vendidos. Contém métricas de faturamento bruto, líquido e descontos por linha de pedido."
+    columns:
+      - name: pk_id_detalhe_pedido
+        description: "Chave primária do grão mais fino da fato (Item do pedido)."
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_produtos
+    description: "Dimensão que consolida a árvore de produtos, suas subcategorias e categorias macro."
+    columns:
+      - name: pk_id_produto
+        description: "Chave primária do produto usada para conectar com a fct_vendas."
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_localizacoes
+    description: "Dimensão geográfica que unifica o endereço, cidade, estado e país dos clientes."
+    columns:
+      - name: pk_id_endereco
+        description: "Chave primária do endereço usada para conectar com a fct_vendas."
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_clientes
+    description: "Dimensão de clientes contendo o nome completo tratado de pessoas físicas e sinalização de lojas."
+    columns:
+      - name: pk_id_cliente
+        description: "Chave primária do cliente usada para conectar com a fct_vendas."
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_cartoes_credito
+    description: "Dimensão com as bandeiras e informações operacionais dos cartões de crédito utilizados nas compras."
+    columns:
+      - name: pk_id_cartao_credito
+        description: "Chave primária do cartão usada para conectar com a fct_vendas."
+        tests:
+          - unique
+          - not_null
