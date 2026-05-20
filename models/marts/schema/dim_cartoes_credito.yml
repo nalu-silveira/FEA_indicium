@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: dim_cartoes_credito
+    description: "Dimensão analítica dos cartões de crédito utilizados como meio de pagamento."
+    columns:
+      - name: pk_id_cartao_credito
+        description: "Chave primária do cartão de crédito."
+        tests:
+          - unique
+          - not_null
+      - name: tipo_cartao
+        description: "Bandeira do cartão de crédito (ex: Vista, SuperiorCard)."
+      - name: numero_cartao_credito
+        description: "Número do cartão de crédito mascarado/armazenado."
+      - name: mes_vencimento_cartao
+        description: "Mês de expiração da validade do cartão."
+      - name: ano_vencimento_cartao
+        description: "Ano de expiração da validade do cartão."

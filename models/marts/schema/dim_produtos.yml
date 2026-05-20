@@ -1,0 +1,24 @@
+
+version: 2
+
+models:
+  - name: dim_produtos
+    description: "Dimensão que consolida a árvore completa de produtos comercializáveis, suas subcategorias e categorias macro."
+    columns:
+      - name: pk_id_produto
+        description: "Chave primária do produto (SKU único)."
+        tests:
+          - unique
+          - not_null
+      - name: nome_produto
+        description: "Nome comercial do produto."
+      - name: codigo_produto
+        description: "Código identificador de fábrica do produto."
+      - name: cor_produto
+        description: "Cor descritiva do produto."
+      - name: preco_lista
+        description: "Preço de tabela sugerido pela fábrica."
+      - name: subcategoria
+        description: "Nome da subcategoria do produto (ex: Mountain Bikes)."
+      - name: categoria
+        description: "Nome da categoria macro do produto (ex: Bikes)."

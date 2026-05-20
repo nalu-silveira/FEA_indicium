@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: fct_vendas
+    description: "Tabela fato centralizada no grão do item do pedido. Armazena o histórico completo de transações e métricas calculadas de faturamento bruto e líquido."
+    columns:
+      - name: pk_id_detalhe_pedido
+        description: "Chave primária e grão da tabela fato (Identificador do item na linha do pedido)."
+        tests:
+          - unique
+          - not_null
+      - name: fk_id_pedido
+        description: "Chave estrangeira / Código identificador do pedido macro (Cabeçalho)."
+      - name: fk_id_produto
+        description: "Chave estrangeira que conecta com a dim_produtos."
+      - name: fk_id_cliente
+        description: "Chave estrangeira que conecta com a dim_clientes."
+      - name: fk_id_cartao_credito
+        description: "Chave estrangeira que conecta com a dim_cartoes_credito."
+      - name: fk_id_endereco
+        description: "Chave estrangeira que conecta com a dim_localizacoes."
+      - name: data_pedido
+        description: "Data em que a venda foi realizada (Chave de tempo para análises cronológicas)."
+      - name: status_pedido
+        description: "Código do status atual do pedido (ex: 5 = Concluído)."
+      - name: is_venda_online
+        description: "Flag booleano indicando se a venda foi realizada pelo e-commerce (True) ou via vendedor físico (False)."
+      - name: motivos_venda
+        description: "Motivos associados à compra unificados em string (ex: 'On Promotion, Price') evitando duplicação de linhas."
+      - name: quantidade_item
+        description: "Quantidade física de unidades compradas daquele item."
+      - name: preco_unitario
+        description: "Preço de venda praticado para o produto na data da compra."
+      - name: percentual_desconto_item
+        description: "Percentual de desconto concedido sobre o preço unitário do item."
+      - name: valor_bruto_item
+        description: "Métrica calculada: Faturamento bruto da linha (Quantidade * Preço Unitário)."
+      - name: valor_desconto_item
+        description: "Métrica calculada: Valor absoluto em dinheiro deduzido pelo desconto da linha."
+      - name: valor_liquido_item
+        description: "Métrica calculada: Faturamento líquido real da linha após desconto aplicado."
