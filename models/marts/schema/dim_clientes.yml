@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+  - name: dim_clientes
+    description: "Dimensão de clientes que unifica o identificador de vendas ao nome real de pessoas físicas ou registro de lojas."
+    columns:
+      - name: pk_id_cliente
+        description: "Chave primária do cliente no ecossistema de vendas."
+        tests:
+          - unique
+          - not_null
+      - name: nome_cliente
+        description: "Nome completo do cliente ou Razão Social da loja."
+      - name: tipo_cliente
+        description: "Tipo de cliente cadastrado (Pessoa Física ou Pessoa Jurídica)."
+      - name: fk_id_loja
+        description: "Código identificador da loja (se aplicável)."
+      - name: fk_id_territorio
+        description: "Código do território geográfico interno associado ao cliente."

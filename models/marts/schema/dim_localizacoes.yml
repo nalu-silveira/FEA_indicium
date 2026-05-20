@@ -1,0 +1,24 @@
+
+version: 2
+
+models:
+  - name: dim_localizacoes
+    description: "Dimensão geográfica que unifica o endereço, cidade, estado e país dos clientes."
+    columns:
+      - name: pk_id_endereco
+        description: "Chave primária do endereço usada para conectar com a fct_vendas."
+        tests:
+          - unique
+          - not_null
+      - name: endereco
+        description: "Logradouro completo combinado (Rua, número, complemento)."
+      - name: cidade
+        description: "Nome da cidade do endereço de cobrança."
+      - name: codigo_postal
+        description: "Código postal / CEP do endereço."
+      - name: estado
+        description: "Nome completo do Estado ou Província."
+      - name: sigla_estado
+        description: "Sigla ou código do Estado (ex: SP, NY)."
+      - name: pais
+        description: "Nome completo do País de destino."
