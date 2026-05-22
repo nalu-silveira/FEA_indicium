@@ -14,12 +14,4 @@ select
     , cast(onlineorderflag as boolean) as is_venda_online
     , cast(subtotal as double) as valor_subtotal
     , cast(taxamt as double) as valor_imposto
-    
-    -- Colunas descartadas por não responderem ao desafio:
-    -- , revisionnumber
-    -- , purchaseordernumber
-    -- , accountnumber
-    -- , creditcardapprovalcode
-    -- , rowguid
-    -- , modifieddate
 from src_order_header

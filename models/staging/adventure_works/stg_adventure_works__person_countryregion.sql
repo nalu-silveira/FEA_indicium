@@ -4,6 +4,6 @@ with
     )
 
 select
-    cast(coalesce(countryregioncode, 'NA') as string) as pk_id_pais
+    {{ treat_na('countryregioncode') }} as pk_id_pais
     , cast(name as string) as nome_pais
 from src_countryregion
