@@ -11,9 +11,4 @@ select
     , cast(orderqty as int) as quantidade_item
     , cast(unitprice as double) as preco_unitario
     , cast(unitpricediscount as double) as desconto_unitario
-
-    -- Colunas de ruído descartadas:
-    -- , carriertrackingnumber
-    -- , rowguid
-    -- , modifieddate
 from src_order_detail

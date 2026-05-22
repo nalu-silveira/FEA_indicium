@@ -9,7 +9,4 @@ select
     , cast(cardnumber as string) as numero_cartao_credito
     , cast(expmonth as int) as mes_vencimento_cartao
     , cast(expyear as int) as ano_vencimento_cartao
-    
-    -- Coluna de sistema descartada:
-    -- , cast(modifieddate as date) as data_atualizacao_cartao_credito
 from src_creditcard
